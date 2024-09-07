@@ -1,0 +1,124 @@
+/* Universal reset and styling for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #1b1c1d;
+  -webkit-user-select: none; /* Prevents text selection on mobile */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Main calculator grid layout */
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  gap: 0.1rem;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px); /* 4 columns of 100px width */
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px); /* First row dynamic, followed by 5 rows of 100px */
+}
+
+/* Styling for calculator buttons */
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid gray;
+  background-color: #292929;
+  color: #adadad;
+  border-radius: 20px;
+  margin: 0.2rem;
+  outline: none;
+  transition: box-shadow 0.2s ease;
+}
+
+/* Button hover effect */
+.calculator-grid > button:hover {
+  box-shadow: 0px 0px 4px 2px #575757;
+}
+
+/* For buttons that span two columns (like AC and =) */
+.span-two {
+  grid-column: span 2;
+}
+
+/* Output display area */
+.output {
+  grid-column: 1 / -1; /* Spans across all columns */
+  background-color: rgba(81, 99, 90, 0.23);
+  border: 5px #333 solid;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word; /* Wraps long text */
+  word-break: break-all; /* Prevents text overflow */
+  margin-bottom: 0.3rem;
+}
+
+/* Styling for the previous and current operand text */
+.output .previous-operand {
+  color: #575757;
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: #7e7e7e;
+  font-size: 2.5rem;
+  -webkit-user-select: text; /* Allow text selection for current operand */
+}
+
+/* Responsive design for screens 450px and below */
+@media screen and (max-width: 450px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 85px); /* Smaller button width */
+    grid-template-rows: minmax(120px, auto) repeat(5, 85px); /* Smaller button height */
+  }
+}
+
+/* Responsive design for screens 350px and below */
+@media screen and (max-width: 350px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 75px);
+  }
+
+  .calculator-grid > button {
+    font-size: 1.7rem;
+  }
+
+  .output .previous-operand {
+    font-size: 1.2rem;
+  }
+
+  .output .current-operand {
+    font-size: 2rem;
+  }
+}
+
+/* Responsive design for extra small screens (301px and below) */
+@media screen and (max-width: 301px) {
+  .calculator-grid {
+    grid-template-columns: repeat(4, 65px);
+    grid-template-rows: minmax(90px, auto) repeat(5, 65px);
+  }
+
+  .calculator-grid > button {
+    font-size: 1.5rem;
+  }
+
+  .output .previous-operand {
+    font-size: 1rem;
+  }
+
+  .output .current-operand {
+    font-size: 1.8rem;
+  }
+}

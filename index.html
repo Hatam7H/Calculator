@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="pics/calculator.png">
+  <!-- Link to the JavaScript file that handles the calculator's functionality -->
+  <script src="index.js" defer></script> 
+</head>
+<body>
+  <!-- Calculator grid structure -->
+  <div class="calculator-grid">
+    <div class="output">
+      <!-- Display for the previous operand -->
+      <div data-previous-operand class="previous-operand"></div>
+      <!-- Display for the current operand -->
+      <div data-current-operand class="current-operand"></div>
+    </div>
+    <!-- Buttons for calculator functionality -->
+    <button data-all-clear class="span-two">AC</button> <!-- All-clear button (spans two columns) -->
+    <button data-delete>DEL</button> <!-- Delete button -->
+    <button data-operation>÷</button> <!-- Division operator -->
+    <button data-number>1</button>
+    <button data-number>2</button>
+    <button data-number>3</button>
+    <button data-operation>×</button> <!-- Multiplication operator -->
+    <button data-number>4</button>
+    <button data-number>5</button>
+    <button data-number>6</button>
+    <button data-operation>+</button> <!-- Addition operator -->
+    <button data-number>7</button>
+    <button data-number>8</button>
+    <button data-number>9</button>
+    <button data-operation>-</button> <!-- Subtraction operator -->
+    <button data-number>.</button> <!-- Decimal point button -->
+    <button data-number>0</button>
+    <button data-equals class="span-two">=</button> <!-- Equals button (spans two columns) -->
+  </div>
+
+  <!-- Script to enable functionality (linked from index.js) -->
+  <script src="index.js"></script>
+</body>
+</html>
